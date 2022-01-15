@@ -13,15 +13,25 @@ class MeetingForm(forms.Form):
     meeting_link=forms.CharField(label='Meeting Link', widget=forms.URLInput(attrs={'class':'form-control'}))
     description = forms.CharField(label='Description',max_length=200,widget=forms.TextInput(attrs={'class':'form-control','rows':'2'}))
 
-class CustomerRegistrationForm(UserCreationForm) :
-    password1=forms.CharField(label='Password',widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    password2=forms.CharField(label='Confirm Password (again)',widget=forms.PasswordInput(attrs={'class':'form-control'}))
-    email=forms.CharField(required=True ,widget=forms.EmailInput(attrs={'class':'form-control'}))
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    phone_no = forms.CharField(max_length = 20)
+    first_name = forms.CharField(max_length = 20)
+    last_name = forms.CharField(max_length = 20)
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'phone_no', 'password1', 'password2']
 
+class RegisterForm(UserCreationForm):
+    email=forms.CharField(required=True,widget =forms.EmailInput(attrs={'class':'form-control'}))
+    mobile=forms.IntegerField(required=True,widget =forms.NumberInput(attrs={'class':'form-control'}))
+    password1=forms.CharField(label='Password' ,widget =forms.PasswordInput(attrs={'class':'form-control'}))
+    password2=forms.CharField(label='Confirm Password ',widget =forms.PasswordInput(attrs={'class':'form-control'}))
+    
     class Meta:
         model=User
-        fields=['username','email']
-        labels={'email':'Email'}
+        fields=['username','email','password1','password2','mobile']
+        labels={'email': 'Email','mobile':'Mobile'}
         widgets={'username':forms.TextInput(attrs={'class':'form-control'})}
 
 

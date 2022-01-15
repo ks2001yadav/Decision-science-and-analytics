@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Edit a meeting{% endblock title %}
+{% block body %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Editing the meeting</h3>
+   <hr>
+
+     <form method="post" action="/update/{{meeting.id}}/">
+        
+   {% if messages %}
+   {% for message in messages %}
+   <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5"{% endif %}>{{message}}</p>
+   {% endfor %}{% endif %}
+   {% csrf_token %}
+   {% for fm in form %}
+      <div class="form-group mb-3">
+         {{fm.label_tag}}{{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+      </div>
+   {% endfor %}
+  
+   <input type="submit" value="Submit" class="btn btn-primary">
+   <br>
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+    {% endif %} 
+    
+   </form> 
+   {% comment %} <form action="/update/{{meeting.id}}/" method="POST">
+    {% csrf_token %}
+    <tr>
+        <td> Starting Time</td>
+        <td><input type="datetime" name="Starting Time" value={{meeting.starting_time}} required></td>
+        <br>
+        <br>
+    </tr>
+    <tr>
+        <td> Ending Time</td>
+        <td><input type="datetime" name="Ending Time" value={{meeting.ending_time}} required></td>
+        <br>
+        <br>
+    </tr>
+    <tr>
+        <td> Meeting link</td>
+        <td><input type="url" name='Meeting link' value={{meeting.meeting_link}} required ></td>
+        <br>
+        <br>
+    </tr>
+    <tr>
+        <td> Description</td>
+        <td><input type="textarea" name='Meeting link' value={{meeting.description}} required></td>
+        <br>
+        <br>
+        
+    </tr>
+    <tr>
+        <td><button>Submit</button></td>
+    </tr>
+</form> {% endcomment %}
+  </div>
+ </div>
+</div>
+{% endblock body %}
+     
+      
