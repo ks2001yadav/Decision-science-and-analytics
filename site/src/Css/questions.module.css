@@ -1,0 +1,131 @@
+.container {
+  height: 90vh;
+  overflow: scroll;
+  text-align: center;
+  font-size: 48px;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.quesHead {
+  display: flex;
+  margin: 0px;
+  margin-top: 48px;
+  margin-left: 4.5vw;
+  margin-right: auto;
+}
+
+.subHead {
+  margin-bottom: 5px;
+  margin-left: 4.5vw;
+  margin-right: auto;
+}
+
+.line {
+  background-color: black;
+  height: 4px;
+  margin: auto;
+  width: 90vw;
+  border-radius: 100%;
+  margin-bottom: 20px;
+}
+.btn {
+  font-size: 18px;
+  display: flex;
+  width: auto;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: 5px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 5vw;
+  text-decoration: none;
+  background-color: #301b3f;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
+  padding-right: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search {
+  height: 40px;
+  width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #e8f6ef;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: "Patua One";
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.itemcon {
+  display: inline-block;
+}
+
+.item {
+  display: flex;
+  text-decoration: none;
+  background-color: #e8f6ef;
+  border-radius: 30px;
+  font-size: 30px;
+  height: 7vh;
+  width: 70vw;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.item p {
+  color: #301b3f;
+  margin: 0px;
+}
+
+.questionLink {
+  background-color: #b8dfd8;
+  border-radius: 30px;
+  font-size: 35px;
+  padding: 5px;
+  height: 50px;
+  margin-right: 50px;
+  width: 300px;
+}
+
+.Link {
+  background-color: #b8dfd8;
+  border-radius: 30px;
+  font-size: 30px;
+  padding: 5px;
+  height: 50px;
+  margin-right: 0px;
+  width: 1000px;
+}
+
+.icon {
+  margin: 0px;
+  margin-top: -3px;
+  margin-left: 0;
+  margin-right: -5px;
+  font-size: 30px;
+}
+
+.icons {
+  font-size: 25px;
+  color: #301b3f;
+  cursor: pointer;
+  margin: 0px;
+}
